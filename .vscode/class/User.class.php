@@ -28,10 +28,12 @@ class User {
         $result = $preparedQuery->get_result();
         $row = $result->fetch_assoc();
         if(password_verify($this->password, $row['password'])) {
-            $this->id = $row['id'];
+            $this->id = $row['Info'];
             $this->firstName = $row['firstName'];
             $this->lastName = $row['lastName'];
-    }
+        
+        }
+
 }
     public function logout(){
 
