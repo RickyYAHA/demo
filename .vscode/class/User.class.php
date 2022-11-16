@@ -10,7 +10,7 @@ class User {
     public function __construct(string $login, string $password)
     {
                 $this->login = $login;
-                $this->password_hash = $password;
+                $this->passwordHash = $password;
             global $db;
             $this->db = &$db;
     }
@@ -27,7 +27,7 @@ class User {
         $preparedQuery->execute();
         $result = $preparedQuery->get_result();
         $row = $result->fetch_assoc();
-        if(password_verify($this->password, $row['password'])) {
+        if(password_verify($this->passwordHash, $row['password'])) {
             $this->id = $row['Info'];
             $this->firstName = $row['firstName'];
             $this->lastName = $row['lastName'];
