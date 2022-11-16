@@ -21,7 +21,7 @@ class User {
             return false;
     }
     public function login(){
-        $query = "SELECT * FROM user WHERE login = ? LIMIT 1";
+             $query = "SELECT * FROM user WHERE login = ? LIMIT 1";
         $preparedQuery = $this->db->prepare($query);
         $preparedQuery->bind_param('s', $this->login);
         $preparedQuery->execute();
