@@ -1,10 +1,10 @@
 <?php
 class User {
     private int $id;
-    private string $login
-    private string $passwordHash
-    private string $firstname
-    private string $lastname
+    private string $login;
+    private string $passwordHash;
+    private string $firstname;
+    private string $lastname;
 
     
     public function __construct(string $login, string $password)
@@ -32,6 +32,7 @@ class User {
             $this->firstName = $row['firstName'];
             $this->lastName = $row['lastName'];
     }
+}
     public function logout(){
 
     }
