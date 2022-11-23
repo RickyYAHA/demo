@@ -1,7 +1,7 @@
 <?php
 class User {
     private $db;
-    private int $info;
+    private int $id;
     private string $login;
     private string $password;
     private string $firstname;
@@ -31,7 +31,7 @@ class User {
         if($result->num_rows == 1) {
             $row = $result->fetch_assoc();
             if(password_verify($this->password, $row['password'])) {
-                $this->info = $row['info'];
+                $this->password = $row['password'];
                 $this->firstname = $row['firstname'];
                 $this->lastname = $row['lastname'];
             }
