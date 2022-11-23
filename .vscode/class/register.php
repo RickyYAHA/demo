@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rejestracja</title>
+    <title>Zarejestruj się</title>
 </head>
 <body>
     <form action="" method="post">
@@ -23,8 +23,8 @@ if(isset($_REQUEST['login']) && isset($_REQUEST['password'])) {
     require_once('conf.php');
     require_once('User.class.php');
     $user = new User($_REQUEST['login'], $_REQUEST['password']);
-    $user->setfirstName($_REQUEST['firstName']);
-    $user->setlastName($_REQUEST['lastName']);
+    $user->setfirstname($_REQUEST['firstname']);
+    $user->setlastname($_REQUEST['lastname']);
     if($user->register()) {
         echo "Zarejestrowano poprawnie";
     } else {
