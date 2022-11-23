@@ -1,16 +1,15 @@
 <?php
-class User {
+class user {
     private int $id;
     private string $login;
-    private string $passwordHash;
+    private string $password;
     private string $firstname;
     private string $lastname;
 
-    
     public function __construct(string $login, string $password)
     {
                 $this->login = $login;
-                $this->passwordHash = $password;
+                $this->password = $password;
             global $db;
             $this->db = &$db;
     }
@@ -27,7 +26,8 @@ class User {
         $preparedQuery->execute();
         $result = $preparedQuery->get_result();
         $row = $result->fetch_assoc();
-        if(password_verify($this->passwordHash, $row['password'])) {
+        $passwordHash = $row['password'];
+        if(password_verify($this->password, $passwordHash)) {
             $this->id = $row['Info'];
             $this->firstName = $row['firstName'];
             $this->lastName = $row['lastName'];
@@ -41,19 +41,20 @@ class User {
     public function register(){
         $query = "INSERT INTO user VALUES (NULL, ?, ?, ?, ?)";
         $preparedQuery = $this->db->prepare($query);
-        $passwordHash = password_hash($this->password, PASSWORD_ARGON2I);
+        $password = password_Hash($this->password, PASSWORD_ARGON2I);
         if(!isset($this->firstName))
             $this->firstName = "";
         if(!isset($this->lastName))
             $this->lastName = "";
-        $preparedQuery->bind_param('ssss', $this->login, 
-                                            $passwordHash,
+        $preparedQuery->bind_param('okokok', $this->login, 
+                                            $password,
                                             $this->firstName, 
                                             $this->lastName);
         $preparedQuery->execute();
     }
 
 }
+
 
 
 

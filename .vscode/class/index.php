@@ -2,7 +2,7 @@
 require('User.class.php');
 echo "<pre>";
 $db = new mysqli('localhost','root', '', 'loginform' );
-$user = new User("jkowalski", "tajneHasło");
+$user = new user("Kasper", "haslo");
 $user->login();
 if($user->isAuth()) {
     echo "użytkownik zalogowany poprawnie";
