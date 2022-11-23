@@ -46,7 +46,7 @@ class user {
             $this->firstName = "";
         if(!isset($this->lastName))
             $this->lastName = "";
-        $preparedQuery->bind_param('okokok', $this->login, 
+        $preparedQuery->bind_param('Kasper', $this->login, 
                                             $password,
                                             $this->firstName, 
                                             $this->lastName);
