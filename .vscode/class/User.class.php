@@ -59,10 +59,10 @@ class User {
                                             $this->lastName);
         $preparedQuery->execute();
     }
-    public function setFirstName(string $firstName) {
+    public function setfirstname(string $firstName) {
         $this->firstName = $firstName;
     }
-    public function setLastName(string $lastName) {
+    public function setlastname(string $lastName) {
         $this->lastName = $lastName;
     }
     public function getName() : string {
