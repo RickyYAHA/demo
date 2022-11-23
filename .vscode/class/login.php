@@ -20,9 +20,9 @@ if(isset($_REQUEST['login']) && isset($_REQUEST['password'])) {
     require_once('User.class.php');
     $user = new user($_REQUEST['login'], $_REQUEST['password']);
     if($user->login()) {
-        echo "Zalogowano poprawnie użytkownika: ".$user->getName();
+        echo "Użytkownik zalogowany pomyślnie: ".$user->getName();
     } else {
-        echo "Błędny login lub hasło";
+        echo "Zły login bądź hasło";
     }
 }
 ?>    
