@@ -43,9 +43,9 @@ class user {
         $preparedQuery = $this->db->prepare($query);
         $password = password_Hash($this->password);
         if(!isset($this->firstName))
-            $this->firstName = "";
+            $this->firstName = "Kasper";
         if(!isset($this->lastName))
-            $this->lastName = "";
+            $this->lastName = "Skuratowicz";
         $preparedQuery->bind_param('Kasper', $this->login, 
                                             $password,
                                             $this->firstName, 
