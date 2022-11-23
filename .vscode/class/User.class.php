@@ -41,7 +41,7 @@ class user {
     public function register(){
         $query = "INSERT INTO user VALUES (NULL, ?, ?, ?, ?)";
         $preparedQuery = $this->db->prepare($query);
-        $password = password_Hash($this->password, PASSWORD_ARGON2I);
+        $password = password_Hash($this->password);
         if(!isset($this->firstName))
             $this->firstName = "";
         if(!isset($this->lastName))
