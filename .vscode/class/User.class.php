@@ -4,8 +4,8 @@ class User {
     private int $info;
     private string $login;
     private string $password;
-    private string $firstName;
-    private string $lastName;
+    private string $firstname;
+    private string $lastname;
 
 
     public function __construct(string $login, string $password)
@@ -32,8 +32,8 @@ class User {
             $row = $result->fetch_assoc();
             if(password_verify($this->password, $row['password'])) {
                 $this->info = $row['info'];
-                $this->firstName = $row['firstName'];
-                $this->lastName = $row['lastName'];
+                $this->firstname = $row['firstname'];
+                $this->lastname = $row['lastname'];
             }
         }
         
@@ -42,31 +42,34 @@ class User {
         $this->login = null;
         $this->password = null;
         $this->id = null;
-        $this->firstName = null;
-        $this->lastName = null;
+        $this->firstname = null;
+        $this->lastname = null;
     }
-    public function register() {
+    public function register() : bool{
         $query = "INSERT INTO user VALUES (NULL, ?, ?, ?, ?)";
         $preparedQuery = $this->db->prepare($query);
         $passwordHash = password_hash($this->password, PASSWORD_ARGON2I);
-        if(!isset($this->firstName))
-            $this->firstName = "";
-        if(!isset($this->lastName))
-            $this->lastName = "";
+        if(!isset($this->firstname))
+            $this->firstname = "";
+        if(!isset($this->lastname))
+            $this->lastname = "";
         $preparedQuery->bind_param('ssss', $this->login, 
                                             $passwordHash,
-                                            $this->firstName, 
-                                            $this->lastName);
-        $preparedQuery->execute();
+                                            $this->firstname, 
+                                            $this->lastname);
+     $result = $preparedQuery->execute();
+    return $result;
     }
-    public function setfirstname(string $firstName) {
-        $this->firstName = $firstName;
+
+
+    public function setfirstname(string $firstname) {
+        $this->firstname = $firstname;
     }
-    public function setlastname(string $lastName) {
-        $this->lastName = $lastName;
+    public function setlastname(string $lastname) {
+        $this->lastname = $lastname;
     }
     public function getName() : string {
-        return $this->firstName . " " . $this->lastName;
+        return $this->firstname . " " . $this->lastname;
     }
 }
 

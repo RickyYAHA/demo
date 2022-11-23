@@ -12,10 +12,10 @@
         <input type="text" name="login" id="loginID"><br>
         <label for="passwordID">Hasło:</label><br>
         <input type="password" name="password" id="passwordID"><br>
-        <label for="firstNameID">Imię:</label><br>
-        <input type="text" name="firstName" id="firstNameID"><br>
-        <label for="lastNameID">Nazwisko:</label><br>
-        <input type="text" name="lastName" id="lastNameID"><br>
+        <label for="firstnameID">Imię:</label><br>
+        <input type="text" name="firstname" id="firstnameID"><br>
+        <label for="lastnameID">Nazwisko:</label><br>
+        <input type="text" name="lastname" id="lastnameID"><br>
         <input type="submit" value="Rejestruj">
     </form>
 <?php
