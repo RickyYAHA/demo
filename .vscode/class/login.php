@@ -8,10 +8,10 @@
 </head>
 <body>
     <form action="" method="post">
-        <label for="loginID">Login:</label><br>
-        <input type="text" name="login" id="loginID"><br>
-        <label for="passwordID">Hasło:</label><br>
-        <input type="password" name="password" id="passwordID"><br>
+        <label for="logininfo">Login:</label><br>
+        <input type="text" name="login" id="logininfo"><br>
+        <label for="passwordinfo">Hasło:</label><br>
+        <input type="password" name="password" id="passwordinfo"><br>
         <input type="submit" value="Zaloguj">
     </form>
 <?php

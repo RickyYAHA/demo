@@ -34,7 +34,9 @@ class User {
                 $this->password = $row['password'];
                 $this->firstname = $row['firstname'];
                 $this->lastname = $row['lastname'];
-            }
+                return true;
+
+            } else return false;
         }
         
     }
