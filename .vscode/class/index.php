@@ -2,7 +2,7 @@
 require_once('conf.php');
 require_once('User.class.php');
 
-$user = new User('Kasper', 'haslo123');
+$user = new User('Kasper', '');
 
 if($user->register()) {
     echo "Zarejestrowano poprawnie";
